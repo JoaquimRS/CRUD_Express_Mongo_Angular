@@ -12,7 +12,7 @@ exports.findAll = async () => {
 
   exports.findOne = async (idProduct) => {
     try {
-      const data = await Product.findById(idProduct);
+      const data = await Product.findOne({slug:idProduct});
       return data;
     } catch (err) {
       return err;
@@ -30,7 +30,7 @@ exports.findAll = async () => {
 
   exports.deleteOne = async (idProduct) => {
     try {
-      const data = await Product.findByIdAndDelete({ _id:idProduct});
+      const data = await Product.findOneAndDelete({ slug:idProduct});
       return { msg: "Product removed correctly", data: data};
     } catch (err) {
       return err;
@@ -39,7 +39,7 @@ exports.findAll = async () => {
 
   exports.updateOne = async (idProduct,productInfo) => {
     try {
-      const data = await Product.updateOne({_id:idProduct},productInfo)
+      const data = await Product.updateOne({slug:idProduct},productInfo)
       return { msg: "Product updated correctly", data: data};
     } catch (err) {
         return err;

@@ -1,11 +1,14 @@
 const express = require("express");
 const mongoose = require("mongoose")
+const cors = require("cors")
 
 const app = express();
 
 const { db } = require('./src/config/')
 const { server } = require('./src/config')
 
+
+app.use(cors())
 app.use(require("./src/routes"))
 
 mongoose.connect(db.url, {
