@@ -1,0 +1,23 @@
+<main>
+    <aside>
+        <div>
+            <p>Asside</p>
+        </div>
+    </aside>
+    <article>
+        <section *ngFor="let product of products">
+            <figure>
+                <img src="https://cloupyblob.blob.core.windows.net/cloupy/image-not-found.png" alt="">
+            </figure>
+            <header>
+                <h2>{{product.price}}€</h2>
+                <p>{{product.title}}</p>
+            </header>
+            <footer>
+                <p>{{product.desc}}</p>
+                <p>{{product.category}}</p>
+            </footer>
+        </section>
+    </article>
+    
+</main>

@@ -1,0 +1,47 @@
+main {
+    display: flex;
+    flex-direction: row;
+    margin-top: 20px;
+}
+aside {
+    width: 20%;
+    margin: 0 auto;
+}
+
+aside div {
+    position: sticky;
+    top: 20px;
+}
+
+article {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    width: 70%;
+    margin: 0 auto;
+}
+section {
+    background-color: #eee;
+    border-radius: 10px;
+    width: 80%;
+    margin-top: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+h2 {
+    font-weight: 800;
+    margin-bottom: 0px;
+    line-height: 5px;
+}
+
+
+
+section > header, footer {
+    margin-left: 20px;
+}
+
+img {
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+}
