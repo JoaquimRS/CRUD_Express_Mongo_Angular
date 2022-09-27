@@ -1,12 +1,13 @@
 const express = require("express");
 const mongoose = require("mongoose")
 const cors = require("cors")
+require("dotenv").config()
 
 const app = express();
 
 const { db } = require('./src/config/')
-const { server } = require('./src/config')
-
+const hostname = process.env.HOSTNAME;
+const port = process.env.PORT
 
 app.use(cors())
 app.use(require("./src/routes"))
@@ -22,6 +23,6 @@ app.get("/", (req, res) => {
   res.json({ message: "Welcome to Wallazon app, made with Express - Mongo - Angular" });
 });
 
-app.listen(server.port, () => {
-  console.log(`http://ximo.com:${server.port}`);
+app.listen(port,hostname, () => {
+  console.log(`http://${hostname}:${port}`);
 });

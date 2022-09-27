@@ -1,6 +1,5 @@
 const config = {
-    db: require("./db.config"),
-    server: require("./server.config")
+    db: require("./db.config")
 }
 
 module.exports = config;

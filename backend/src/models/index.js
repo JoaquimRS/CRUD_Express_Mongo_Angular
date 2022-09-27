@@ -1,6 +1,6 @@
 const models = {
-    Product: require('./product.model'),
-    Category: require('./category.model')
+    Product: require('./Product.model'),
+    Category: require('./Category.model')
 }
 
 module.exports = models

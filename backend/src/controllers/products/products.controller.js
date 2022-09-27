@@ -21,6 +21,7 @@ exports.findAll = async () => {
 
   exports.addOne = async (productInfo) => {
     try {
+      console.log(productInfo);
       const data = await Product.create(productInfo);
       return data;
     } catch (err) {

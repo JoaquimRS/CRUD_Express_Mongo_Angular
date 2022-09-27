@@ -24,6 +24,7 @@ exports.addProduct = async (req,res) => {
     let product
     try {
         product = await productController.addOne(req.body)
+        
     } catch (error) {
         product = error
     }
