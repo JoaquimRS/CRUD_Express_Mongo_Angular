@@ -3,5 +3,5 @@ export interface Product{
     title: String;
     price: Number;
     desc: String;
-    slug: String;
+    slug?: String;
 }

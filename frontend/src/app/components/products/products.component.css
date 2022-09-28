@@ -15,7 +15,7 @@ aside div {
 
 article {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     width: 70%;
     margin: 0 auto;
 }
@@ -36,12 +36,65 @@ h2 {
 
 
 
-section > header, footer {
+section header, section footer {
     margin-left: 20px;
+}
+section i {
+    margin-left: 20px;
+    margin-top: 20px;
+    cursor: pointer;
+}
+section i.edit {
+    position: relative;
+    top: 0;
+    left: 65%;
+    
+    
 }
 
 img {
     width: 100%;
     object-fit: cover;
     object-position: center;
+}
+
+figure:hover {
+    transform: scale(0.8);
+    cursor: pointer;
+}
+
+/* .add {
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.add figure {
+    width: 50px;
+    background-color: #eee;
+    padding: 20px;
+    border-radius: 50%;
+}
+.add figure:hover {
+    transform: scale(1.2);
+    cursor: pointer;
+} */
+.add-form figure{
+    background-color: white;
+    padding: 20px;
+    border-radius: 50%;
+}
+
+
+input {
+    -webkit-appearance: none;
+    
+    border: 0;
+    font-family: inherit;
+    padding: 0;
+    height: 40px;
+    font-size: 16px;
+    background: none;
+    border-radius: 0;
+    
 }

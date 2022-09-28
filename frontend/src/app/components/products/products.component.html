@@ -6,6 +6,8 @@
     </aside>
     <article>
         <section *ngFor="let product of products">
+            <i class="fa-solid fa-trash fa-lg" (click)="removeProduct(product)"></i>
+            <i class="fa-solid fa-pen-to-square fa-lg edit" (click)="updateProduct()"></i>
             <figure>
                 <img src="https://cloupyblob.blob.core.windows.net/cloupy/image-not-found.png" alt="">
             </figure>
@@ -17,6 +19,22 @@
                 <p>{{product.desc}}</p>
                 <p>{{product.category}}</p>
             </footer>
+            
+        </section>
+        <section class="add-form">
+            <form [formGroup]="productForm">
+                <figure>
+                    <img (click)="addProduct()" src="https://www.citypng.com/public/uploads/small/11639609695yygxzt5rg1wjx74zifdlsscyok4m9lpgzcgrxefhywpoqgifkavbnk1rhyf6jd0qjd6arxxqmagmtypmw9s5ibugkcfm4dx1kmgx.png" alt="">
+                </figure>
+                <header>
+                    <input type="number" formControlName="price" placeholder="Price">
+                    <input type="text" formControlName="title" placeholder="Title">
+                </header>
+                <footer>
+                    <input type="text" formControlName="desc" placeholder="Description">
+                    <input type="text" formControlName="category" placeholder="Category">
+                </footer>
+            </form>
         </section>
     </article>
     
