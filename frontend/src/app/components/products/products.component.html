@@ -7,7 +7,7 @@
     <article>
         <section *ngFor="let product of products">
             <i class="fa-solid fa-trash fa-lg" (click)="removeProduct(product)"></i>
-            <i class="fa-solid fa-pen-to-square fa-lg edit" (click)="updateProduct()"></i>
+            <i class="fa-solid fa-pen-to-square fa-lg edit" (click)="updateProduct(product)"></i>
             <figure>
                 <img src="https://cloupyblob.blob.core.windows.net/cloupy/image-not-found.png" alt="">
             </figure>

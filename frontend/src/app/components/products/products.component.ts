@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Observable, of } from 'rxjs';
-
+import { Observable, of , Subscription} from 'rxjs';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 
 import { Product } from 'src/app/models/product.model';
 import { ProductService } from 'src/app/services/product.service';
+import { ModalComponent } from '../modal/modal.component';
 
 
 @Component({
@@ -15,10 +16,13 @@ import { ProductService } from 'src/app/services/product.service';
 export class ProductsComponent implements OnInit {
   productForm: FormGroup;
   products: Product[] = []
+  subscription!: Subscription
 
   constructor(
     private fb: FormBuilder,
     private productService: ProductService,
+    private modal : MatDialog
+
     ) {
       this.productForm = this.fb.group({
         price: ['', Validators.required],
@@ -31,7 +35,6 @@ export class ProductsComponent implements OnInit {
 
   ngOnInit(): void {
     this.getProducts()
-    
   }
 
   getProducts(): void {
@@ -41,7 +44,6 @@ export class ProductsComponent implements OnInit {
         console.log(products);
          
       });
-    
   }
   addProduct(): void {
     const newProduct : Product = {
@@ -60,11 +62,28 @@ export class ProductsComponent implements OnInit {
     )
   }
   removeProduct(product: Product): void {
-    
-    console.log("Remove Product"+product.slug);
+    this.productService.deleteProduct(product)
+    .subscribe(res =>{
+      console.log(res);
+      let sProducts: Product[] = this.products.filter(p => p.slug != product.slug)
+      this.products = sProducts    
+      console.log("Remove Product"+product.slug);
+    })
   }
-  updateProduct(): void {
-    console.log("Update Product");
+  updateProduct(product: Product): void {     
+    this.productService.setCurrentProduct(product)
+    const modalRef = this.modal.open(ModalComponent)
+
+    modalRef.afterClosed()
+    .subscribe(() =>{
+      this.productService.updateProduct(product)
+      .subscribe(res =>{
+        console.log(res);
+        
+      })
+      
+      
+    })
     
   }
 
