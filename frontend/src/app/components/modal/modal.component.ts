@@ -17,7 +17,7 @@ export class ModalComponent implements OnInit {
   constructor(private productService: ProductService) { }
   
   ngOnInit(): void {
-    this.subscription = this.productService.currentProduct.subscribe(product => this.uProduct = product)
+    this.subscription = this.productService.state$.subscribe(product => this.uProduct = product)
   }
 
 

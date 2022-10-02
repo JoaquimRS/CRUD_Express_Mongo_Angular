@@ -8,11 +8,15 @@ import { Product } from '../models/product.model';
   providedIn: 'root'
 })
 export class ProductService {
-  private productSubject = new BehaviorSubject({} as Product)
-  currentProduct = this.productSubject.asObservable();
-  
+  private state = new BehaviorSubject({} as Product)
+  state$ = this.state.asObservable();
+
+  get currentProduct(): Product {
+    return this.state.getValue()
+  }
+
   setCurrentProduct(product: Product) {
-    this.productSubject.next(product)
+    this.state.next(product)
   }
 
   private productsUrl = 'http://ximo.com:8080/products'
